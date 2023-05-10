@@ -33,6 +33,10 @@ public class Vehiculo {
         this.empleadoVendedor = empleadoVendedor;
     }
 
+    public Vehiculo() {
+
+    }
+
     public Integer getId() {
         return id;
     }

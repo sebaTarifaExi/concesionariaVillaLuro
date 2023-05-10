@@ -20,6 +20,10 @@ public class Cliente {
     @Column(length = 50)
     private Empleado empleadoAlQueLeCompro;
 
+    public Cliente(){
+
+    }
+
     public Cliente(Integer id, String nombre, Date fechaDeCompra, Vehiculo vehiculoComprado, Empleado empleadoAlQueLeCompro) {
         this.id = id;
         this.nombre = nombre;
