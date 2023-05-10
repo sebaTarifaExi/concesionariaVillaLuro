@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ClienteServiceImplementation implements ClienteService{
 
@@ -30,6 +32,16 @@ public class ClienteServiceImplementation implements ClienteService{
     @Override
     public List<Cliente> ListadoDeAlumnos() {
         return clienteRepository.findAll();
+    }
+
+    @Override
+    public Optional<Cliente> buscarClientePorId(Integer id) {
+        return clienteRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Cliente> buscarClientePorNombre(String nombre) {
+        return clienteRepository.findByNombre(nombre);
     }
 
     public ClienteRepository getClienteRepository() {

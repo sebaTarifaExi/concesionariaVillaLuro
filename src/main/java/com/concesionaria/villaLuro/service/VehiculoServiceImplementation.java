@@ -7,6 +7,7 @@ import com.concesionaria.villaLuro.repository.VehiculoRepository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class VehiculoServiceImplementation implements VehiculoService{
 
@@ -31,6 +32,21 @@ public class VehiculoServiceImplementation implements VehiculoService{
     @Override
     public List<Vehiculo> listadoDeVehiculos() {
         return vehiculoRepository.findAll();
+    }
+
+    @Override
+    public Optional<Vehiculo> buscarVehiculoPorId(Integer id) {
+        return vehiculoRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Vehiculo> buscarVehiculoPorMara(String marca) {
+        return vehiculoRepository.findByMarca(marca);
+    }
+
+    @Override
+    public List<Vehiculo> buscarVehiculoPorMarcaYModelo(String marca, String modelo) {
+        return vehiculoRepository.findByMarcaAndModelo(marca, modelo);
     }
 
     public VehiculoRepository getVehiculoRepository() {

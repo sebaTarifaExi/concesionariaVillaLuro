@@ -7,6 +7,8 @@ import com.concesionaria.villaLuro.repository.EmpleadoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EmpleadoServiceImplementation implements EmpleadoService{
 
@@ -29,6 +31,16 @@ public class EmpleadoServiceImplementation implements EmpleadoService{
     @Override
     public List<Empleado> listadoDeEmpleados() {
         return empleadoRepository.findAll();
+    }
+
+    @Override
+    public Optional<Empleado> buscarEmpleadoPorId(Integer id) {
+        return empleadoRepository.findById(id);
+    }
+
+    @Override
+    public Optional<Empleado> buscarEmpleadoPorNombre(String nombre) {
+        return empleadoRepository.findByNombre(nombre);
     }
 
     public EmpleadoRepository getEmpleadoRepository() {
